@@ -36,6 +36,75 @@
             z-index: 100;
         }
 
+/* Спільний контейнер для тексту та кнопок */
+.hero-content-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    flex-direction: column; /* Текст зверху, кнопки знизу */
+    align-items: center;    /* Центрування по горизонталі */
+    gap: 120px;
+    width: 100%;
+    z-index: 10;
+}
+
+/* Стиль тексту */
+.hero-title {
+    color: white;
+    font-size: 80px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.9);
+}
+
+/* Контейнер кнопок — тепер це сітка 4х2 */
+.hero-buttons-overlay {
+    display: flex;
+    flex-wrap: wrap;      /* Дозволяє кнопкам переходити на другий рядок */
+    justify-content: center;
+    gap: 30px;            /* Відстань між квадратами (і по вертикалі, і по горизонталі) */
+    max-width: 1150px;    /* Обмежуємо ширину, щоб в ряд влізало рівно 4 штуки */
+    margin: 0 auto;       /* Центруємо саму сітку */
+}
+
+/* Стиль самих квадратів */
+.hero-square {
+    width: 250px;         /* Фіксована ширина */
+    height: 160px;        /* Фіксована висота */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: var(--light);
+    text-decoration: none;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    
+    font-weight: bold;
+    font-size: 20px;      /* Трохи менший шрифт, щоб текст про виготовлення вліз */
+    line-height: 1.3;
+    
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Ефект при наведенні */
+.hero-square:hover {
+    background-color: var(--accent);
+    color: var(--dark);
+    transform: scale(1.05);
+    backdrop-filter: none; /* При наведенні блюр прибираємо для чіткості */
+}
 
         .hero-container {
             display: flex;
@@ -154,7 +223,11 @@
             text-align: center;
         }
 
-        footer p { margin: 5px 0; font-size: 14px; color: var(--text-muted); }
+        footer p { 
+            margin: 5px 0; 
+            font-size: 14px; 
+            color: var(--text-muted); 
+        }
 
         @media (max-width: 600px) {
             .info-block { padding: 30px 20px; }
@@ -167,31 +240,42 @@
 <header>
     <a href="index.html" class="logo">
         <img src="SunWay Photo/SunWay.png" alt="Logo">
-        <div class="logo-text">
-            SunWay
-        </div>
-    </a>
+        <div class="logo-text">SunWay</div></a>
     <nav>
         <a href="#">Новинки</a>
-        <a href="#">Каталог</a>
         <a href="#">Про нас</a>
         <a href="#">Контакти</a>
     </nav>
 </header>
 
 <div class="hero-container">
-    <img src="SunWay Photo/SunWayHero.jpg" alt="Hero">
+    <img src="SunWay Photo/SunWayHero.png" alt="Hero">
+    
+    <div class="hero-content-wrapper">
+        <h1 class="hero-title">SunWay — місце твоїх ідей!</h1>
+        
+        <div class="hero-buttons-overlay">
+            <a href="#" class="hero-square">Сантехніка</a>
+            <a href="#" class="hero-square">Виготовлення: душових кабін, перегородок, дзеркал</a>
+            <a href="#" class="hero-square">Опалення</a>
+            <a href="#" class="hero-square">Водопостачання</a>
+            <a href="#" class="hero-square">Каналізація</a>
+            <a href="#" class="hero-square">Кондиціонери</a>
+            <a href="#" class="hero-square">Вентиляція</a>
+            <a href="#" class="hero-square">Електрика</a>
+        </div>
+    </div>
 </div>
 
 <main class="main-container">
     <article class="info-block">
         <h1>Ласкаво просимо до Sunway</h1>
         
-        <p>Ведіть Текст</p>
+        <p>Сценаріст Юра заснув тому тексту нема</p>
         
         <p><strong>Чому обирають нас:</strong></p>
         <ul>
-            <li>Ведіть текст</li>
+            <li>Тому що я так сказав</li>
         </ul>
     </article>
 </main>
